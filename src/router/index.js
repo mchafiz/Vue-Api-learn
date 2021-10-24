@@ -1,33 +1,41 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Foods from '../views/Foods.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import Foods from "../views/Foods.vue";
+import FoodDetail from "../views/FoodDetail.vue";
+import Keranjang from "../views/Keranjang.vue";
+import PesananSukses from "../views/PesanananSukses.vue";
 
-Vue.use(VueRouter)
+
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
-  {path:'/foods',
-name:'Food',
-component:Foods},
+  { path: "/foods", name: "Food", component: Foods },
+  { path: "/foods/:id", name: "FoodDetail", component: FoodDetail },
+  { path: "/keranjang", name: "Keranjang", component: Keranjang },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    path: "/pesanan-sukses",
+    name: "PesananSukses",
+    component: PesananSukses,
+  },
+
+  {
+    path: "/about",
+    name: "About",
+
+    component: () => import("../views/About.vue"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
